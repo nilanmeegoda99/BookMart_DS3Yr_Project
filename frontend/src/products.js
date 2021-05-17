@@ -1,7 +1,7 @@
 const products = [
   {
     _id: '1',
-    b_name: 'The Duke : 100 Chapters in the Life of Prince Philip',
+    b_name: 'The Duke : Life of Prince Philip',
     b_image: '/images/TheDuke.jpg',
     b_description:
       'The Archbishop of Canterbury called him bloody rude, courtiers feared he was a foreign interloper out for the goodies, daughter-in-law Sarah Ferguson found him very frightening and the Queen',
