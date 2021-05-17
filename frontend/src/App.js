@@ -1,15 +1,16 @@
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Home from './screens/Home'
 
 const App = () => {
   return (
     <>
 
       <Header />
-        <main>
+        <main className='py-2'>
           <Container>
-          <h1> Welcome to BookMart </h1>
+              <Home />
           </Container>
         </main>
       <Footer />
