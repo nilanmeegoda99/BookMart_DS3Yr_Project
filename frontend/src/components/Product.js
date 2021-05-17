@@ -1,4 +1,8 @@
 import React from 'react'
+
+//instead of 'a' tag
+import { Link } from 'react-router-dom'
+
 import { Card } from 'react-bootstrap'
 import Rating from '../components/Rating'
 
@@ -8,16 +12,16 @@ import Rating from '../components/Rating'
 const Product = (props) => {
   return (
     <Card className='my-3 py-3 rounded'>
-      <a href={`/product/${props.product._id}`}>
-        <Card.Img src={props.product.b_image} variant='top' />
-      </a>
+      <Link to={`/product/${props.product._id}`}>
+        <Card.Img src={props.product.b_image} variant='top' fluid />
+      </Link>
 
       <Card.Body>
-        <a href={`/product/${props.product._id}`}>
+        <Link to={`/product/${props.product._id}`}>
           <Card.Title as='div'>
             <strong>{props.product.b_name}</strong>
           </Card.Title>
-        </a>
+        </Link>
 
         <Card.Text as='div'></Card.Text>
         <Card.Text as='h3'>${props.product.price}</Card.Text>

@@ -1,22 +1,25 @@
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './screens/Home'
+import ProductView from './screens/ProductView'
 
 const App = () => {
   return (
-    <>
-
+    <Router>
       <Header />
-        <main className='py-2'>
-          <Container>
-              <Home />
-          </Container>
-        </main>
+      <main className='py-2'>
+        <Container>
+          {/* Here we have used route to go to homepage if path is exactly / using exact keyword */}
+          <Route path='/' component={Home} exact />
+
+          <Route path='/product/:id' component={ProductView} />
+        </Container>
+      </main>
       <Footer />
-      
-    </>
+    </Router>
   )
 }
 
-export default App;
+export default App
