@@ -81,4 +81,4 @@ const products = [
 
 //export default products  is ex module
 
-module.exports = products
+export default products
