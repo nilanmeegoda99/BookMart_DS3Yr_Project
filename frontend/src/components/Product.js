@@ -13,7 +13,7 @@ const Product = (props) => {
   return (
     <Card className='my-3 py-3 rounded'>
       <Link to={`/product/${props.product._id}`}>
-        <Card.Img src={props.product.b_image} variant='top' fluid />
+        <Card.Img src={props.product.b_image} variant='top' fluid='true' />
       </Link>
 
       <Card.Body>

@@ -28,7 +28,7 @@ const products = [
   {
     _id: '3',
     b_name: 'Burial Rites',
-    b_image: '/images/Burial Rites.jpg',
+    b_image: '/images/BurialRites.jpg',
     b_description:
       'Inspired by a true story, Hannah Kents Burial Rites was shortlisted for The Baileys Womens Prize for Fiction, The Guardian First Book Award and The International IMPAC Dublin Literary Awards.',
     b_author: 'Hannah Kent',
@@ -79,4 +79,6 @@ const products = [
   },
 ]
 
-export default products
+//export default products  is ex module
+
+module.exports = products
