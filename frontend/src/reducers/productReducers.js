@@ -1,4 +1,4 @@
-import {PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL} from '../constants/productConstants'
+import {PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL, PRODUCT_INFO_REQUEST, PRODUCT_INFO_SUCCESS, PRODUCT_INFO_FAIL} from '../constants/productConstants'
 
 export const productListReducer = (state = { products: [] }, action) => {
   switch (action.type) {
@@ -12,3 +12,16 @@ export const productListReducer = (state = { products: [] }, action) => {
       return state
   }
 }
+
+export const productInfoReducer = (state = { product: {} }, action) => {
+    switch (action.type) {
+      case PRODUCT_INFO_REQUEST:
+        return { loading: true, product: [] }
+      case PRODUCT_INFO_SUCCESS:
+        return { loading: false, product: action.payload }
+      case PRODUCT_INFO_FAIL:
+        return { loading: false, error: action.payload }
+      default:
+        return state
+    }
+  }
