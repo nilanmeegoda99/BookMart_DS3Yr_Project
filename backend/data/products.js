@@ -1,6 +1,6 @@
 const products = [
   {
-    _id: '1',
+    
     b_name: 'The Duke : Life of Prince Philip',
     b_image: '/images/TheDuke.jpg',
     b_description:
@@ -13,7 +13,7 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
+    
     b_name: 'Becoming : MICHELLE OBAMA  ',
     b_image: '/images/Becoming.jpg',
     b_description:
@@ -26,7 +26,7 @@ const products = [
     numReviews: 20,
   },
   {
-    _id: '3',
+    
     b_name: 'Burial Rites',
     b_image: '/images/BurialRites.jpg',
     b_description:
@@ -39,7 +39,7 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
+   
     b_name: 'The Midnight Library',
     b_image: '/images/Midnight.jpg',
     b_description:
@@ -52,7 +52,7 @@ const products = [
     numReviews: 3,
   },
   {
-    _id: '5',
+    
     b_name: 'Jujutsu Kaisen 0',
     b_image: '/images/jujutsu.jpg',
     b_description:
@@ -65,7 +65,7 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '6',
+    
     b_name: 'The First 90 Days,',
     b_image: '/images/first90days.jpg',
     b_description:
