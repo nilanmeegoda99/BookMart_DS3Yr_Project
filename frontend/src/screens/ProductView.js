@@ -1,27 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
+import {
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Card,
+  Button,
+  FormControl,
+} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Buffer from '../components/buffer'
 import Alertmsg from '../components/Alert'
 import { listProductInfo } from '../actions/productActions'
 
-const ProductView = ({ match }) => {
+const ProductView = ({ history, match }) => {
+  const [stk_count, set_stkCount] = useState(0)
+
   const dispatch = useDispatch()
 
   const productInfo = useSelector((state) => state.productInfo)
   const { loading, error, product } = productInfo
 
-  
-
   useEffect(() => {
     dispatch(listProductInfo(match.params.id))
   }, [dispatch, match])
 
-  
-   
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?stkqty=${stk_count}`)
 
+  }
 
   return (
     <>
@@ -29,13 +38,11 @@ const ProductView = ({ match }) => {
         Back
       </Link>
 
-      {loading ? 
+      {loading ? (
         <Buffer />
-       : error ? 
+      ) : error ? (
         <Alertmsg variant='danger'>{error}</Alertmsg>
-      : (
-
-       
+      ) : (
         <Row>
           <Col md={6}>
             <Image
@@ -84,8 +91,33 @@ const ProductView = ({ match }) => {
                   </Row>
                 </ListGroup.Item>
 
+                {/*if products are available in the stock */}
+
+                {product.countInStock > 0 && (
+                  <ListGroup.Item>
+                    <Row>
+                    <Col>Quantity</Col>
+                      <Col>
+                      
+                        <FormControl
+                          as='select'
+                          value={stk_count}
+                          onChange={(e) => set_stkCount(e.target.value)}
+                        >
+                          {[...Array(product.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </FormControl>
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                )}
+
                 <ListGroup.Item>
                   <Button
+                   onClick={addToCartHandler}
                     className='btn-block'
                     type='button'
                     disabled={product.countInStock === 0}
@@ -98,7 +130,6 @@ const ProductView = ({ match }) => {
           </Col>
         </Row>
       )}
-
     </>
   )
 }
