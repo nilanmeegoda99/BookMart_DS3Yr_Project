@@ -10,14 +10,18 @@ import { listProductInfo } from '../actions/productActions'
 const ProductView = ({ match }) => {
   const dispatch = useDispatch()
 
-  //const ProductInfo = useSelector((state) => state.productInfo)
-  //const { loading, error, product } = ProductInfo
+  const productInfo = useSelector((state) => state.productInfo)
+  const { loading, error, product } = productInfo
+
+  
 
   useEffect(() => {
     dispatch(listProductInfo(match.params.id))
   }, [dispatch, match])
 
-  const product = {}
+  
+   
+
 
   return (
     <>
@@ -25,11 +29,13 @@ const ProductView = ({ match }) => {
         Back
       </Link>
 
-     {/* {loading ? 
+      {loading ? 
         <Buffer />
        : error ? 
         <Alertmsg variant='danger'>{error}</Alertmsg>
-     : ( */}
+      : (
+
+       
         <Row>
           <Col md={6}>
             <Image
@@ -91,7 +97,8 @@ const ProductView = ({ match }) => {
             </Card>
           </Col>
         </Row>
-      
+      )}
+
     </>
   )
 }

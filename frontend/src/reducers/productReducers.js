@@ -30,7 +30,7 @@ export const productInfoReducer = (
     case PRODUCT_INFO_SUCCESS:
       return { loading: false, product: action.payload }
     case PRODUCT_INFO_FAIL:
-      return { loading: false, error: action.payload }
+     return { loading: false, error: action.payload }
     default:
       return state
   }
