@@ -27,7 +27,7 @@ const ProductView = ({ history, match }) => {
     dispatch(listProductInfo(match.params.id))
   }, [dispatch, match])
 
-  const addToCartHandler = () => {
+  const cartHandler = () => {
     history.push(`/cart/${match.params.id}?stkqty=${stk_count}`)
 
   }
@@ -117,7 +117,7 @@ const ProductView = ({ history, match }) => {
 
                 <ListGroup.Item>
                   <Button
-                   onClick={addToCartHandler}
+                   onClick={cartHandler}
                     className='btn-block'
                     type='button'
                     disabled={product.countInStock === 0}
