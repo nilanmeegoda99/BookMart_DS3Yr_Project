@@ -5,6 +5,7 @@ import connectDB from './config/db.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
 
@@ -12,12 +13,16 @@ connectDB()
 
 const app = express()
 
+//a middleware to accpet json request body through the server 
+app.use(express.json())
+
 app.get('/', (req, res) => {
-  res.send('API is running')
+  res.send('The API is working')
 })
 
-//middleware
+//Routing to relavent Roters
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
