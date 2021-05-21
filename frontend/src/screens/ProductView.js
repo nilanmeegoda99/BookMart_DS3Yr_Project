@@ -16,7 +16,7 @@ import Alertmsg from '../components/Alert'
 import { listProductInfo } from '../actions/productActions'
 
 const ProductView = ({ history, match }) => {
-  const [stk_count, set_stkCount] = useState(0)
+  const [stk_count, set_stkCount] = useState(1)
 
   const dispatch = useDispatch()
 
