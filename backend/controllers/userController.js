@@ -9,7 +9,7 @@ import User from '../models/userModel.js'
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
 
-  const user = await User.findOne({ email: email })
+  const user = await User.findOne({ email })
 
   if (user && (await user.verifyCredentials(password))) {
     res.json({
@@ -71,12 +71,10 @@ const addUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       token: genToken(user._id),
-
     })
   } else {
     res.status(400)
     throw new Error('This user account cannot be created. Try again')
-
   }
 })
 

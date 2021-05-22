@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './screens/Home'
 import ProductView from './screens/ProductView'
 import CartView from './screens/CartView'
+import  SignInView from './screens/SignInView'
 
 const App = () => {
   return (
@@ -12,12 +13,18 @@ const App = () => {
       <Header />
       <main className='py-2'>
         <Container>
-          {/* Here we have used route to go to homepage if path is exactly / using exact keyword */}
-          <Route path='/' component={Home} exact />
+         
 
           <Route path='/product/:id' component={ProductView} />
 
           <Route path='/cart/:id?' component={CartView} />
+
+          <Route path='/login' component={SignInView} />
+
+           {/* Here we have used route to go to homepage if path is exactly / using exact keyword */}
+           <Route path='/' component={Home} exact />
+
+
 
         </Container>
       </main>
