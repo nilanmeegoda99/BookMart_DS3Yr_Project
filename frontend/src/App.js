@@ -7,6 +7,7 @@ import ProductView from './screens/ProductView'
 import CartView from './screens/CartView'
 import  SignInView from './screens/SignInView'
 import AddUserView from './screens/AddUserView'
+import UserProfileView from './screens/userProfileView'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
 
           <Route path='/product/:id' component={ProductView} />
           <Route path='/cart/:id?' component={CartView} />
+          <Route path='/account' component={UserProfileView} />
           <Route path='/login' component={SignInView} />
           <Route path='/register' component={AddUserView} />
            {/* Here we have used route to go to homepage if path is exactly / using exact keyword */}

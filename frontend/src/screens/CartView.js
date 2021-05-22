@@ -8,10 +8,7 @@ import {
   Button,
   Card,
   ListGroup,
-  Form,
-  Alert,
   FormControl,
-  ListGroupItem,
 } from 'react-bootstrap'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 
