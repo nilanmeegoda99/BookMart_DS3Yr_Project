@@ -6,6 +6,6 @@ const router = express.Router()
 
 router.route('/').get(getProducts)
 
-router.route('/:id').get(getProducById).delete(shield, admin, deleteProducById)
+router.route('/:id').get(getProducById).delete(shield, admin, deleteProducById).put(shield, admin, )
 
 export default router
