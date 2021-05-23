@@ -36,4 +36,14 @@ const shield = asyncHandler(async(req,res, next) => {
 
 })
 
-export { shield }
+const admin = (req,res,next) => {
+  if(req.user && req.user.isAdmin)
+  {
+    next()
+  }else{
+    res.status(401)
+    throw new Error('Not an admin credential')
+  }
+}
+
+export { shield, admin }

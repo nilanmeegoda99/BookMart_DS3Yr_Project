@@ -13,6 +13,9 @@ import {
   USER_UPDATE_ACC_REQUEST,
   USER_UPDATE_ACC_SUCCESS,
   USER_UPDATE_ACC_FAIL,
+  USER_LIST_REQUEST,
+  USER_LIST_SUCCESS,
+  USER_LIST_FAIL,
  
 } from '../constants/userConstants'
 
@@ -164,6 +167,48 @@ export const updateUserAccount = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_ACC_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const ListUsers = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: USER_LIST_REQLEST,
+    })
+
+    const {
+      userSignin: { userDetails },
+    } = getState()
+
+    const config = {
+      headers: {
+        
+        Authorization: `Bearer ${userDetails.token}`,
+      },
+    }
+
+    const { data } = await axios.get(`/api/users/account`, user, config)
+
+    dispatch({
+      type: USER_LIST_SUCLESS,
+      payload: data,
+    })
+
+    dispatch({
+      type: USER_SIGIN_SUCCESS,
+      payload: data,
+    })
+
+    localStorage.setItem('userDetails', JSON.stringify(data))
+
+  } catch (error) {
+    dispatch({
+      type: USER_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

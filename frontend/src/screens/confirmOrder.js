@@ -25,7 +25,7 @@ const ConfirmOrder = ({history}) => {
     dispatch(
       AddOrder({
         orderItems: cart.cartItems,
-        shppingAddress: cart.shippingDetails,
+        //shppingAddress: cart.shippingDetails,
         paymentMethod: cart.paymentDetails,
         itemsPrice: cart.itemsCost,
         shippingPrice: cart.shippingCost,
