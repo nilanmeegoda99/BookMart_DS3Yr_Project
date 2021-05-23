@@ -3,18 +3,20 @@ import Order from '../models/orderModel.js'
 
 // @desc  insert new order
 // @route POST /api/orders
-// @access Purivate
+// @access Private
 const createOrder = asyncHandler(async (req, res) => {
   const {
     orderItems,
     shippingPrice,
     paymentMethod,
     itemsPrice,
-    shppingAddress,
+    shippingAddress,
     totalPrice,
   } = req.body
 
-  if (cartItems && cartItems.length === 0) {
+  // console.log(req.body);
+
+  if (orderItems && orderItems.length === 0) {
     res.status(400)
     throw new Error('Empty Order list')
     return
@@ -25,7 +27,7 @@ const createOrder = asyncHandler(async (req, res) => {
       shippingPrice,
       paymentMethod,
       itemsPrice,
-      shppingAddress,
+      shippingAddress,
       totalPrice,
     })
 
