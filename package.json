@@ -26,5 +26,13 @@
   "devDependencies": {
     "concurrently": "^6.1.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilanmeegoda99/BookMart_DS3Yr_Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nilanmeegoda99/BookMart_DS3Yr_Project/issues"
+  },
+  "homepage": "https://github.com/nilanmeegoda99/BookMart_DS3Yr_Project#readme"
 }

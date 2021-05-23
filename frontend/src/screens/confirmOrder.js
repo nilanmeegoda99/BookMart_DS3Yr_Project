@@ -25,14 +25,18 @@ const ConfirmOrder = ({history}) => {
     dispatch(
       AddOrder({
         orderItems: cart.cartItems,
-        //shppingAddress: cart.shippingDetails,
-        paymentMethod: cart.paymentDetails,
+
+        shippingAddress: cart.shippingDetails,
+     
+       paymentMethod: cart.paymentDetails,
         itemsPrice: cart.itemsCost,
         shippingPrice: cart.shippingCost,
         totalPrice: cart.totalCost,
       })
     )
   }
+
+  console.log(cart.cartItems);
 
   cart.itemsCost = cart.cartItems.reduce(
     (acc, item) => acc + item.price * item.oqty,
