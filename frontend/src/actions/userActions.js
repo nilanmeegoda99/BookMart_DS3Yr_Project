@@ -16,6 +16,7 @@ import {
   USER_LIST_REQUEST,
   USER_LIST_SUCCESS,
   USER_LIST_FAIL,
+  USER_LIST_CLEAN
  
 } from '../constants/userConstants'
 
@@ -57,6 +58,8 @@ export const Sign_In = (email, password) => async (dispatch) => {
 export const signout = () => (dispatch) => {
   localStorage.removeItem('userDetails')
   dispatch({ type: USER_SIGNOUT })
+  dispatch({ type: USER_LIST_CLEAN })
+
 }
 
 export const AddUser = (name, email, password) => async (dispatch) => {
@@ -178,7 +181,7 @@ export const updateUserAccount = (user) => async (dispatch, getState) => {
 export const ListUsers = () => async (dispatch, getState) => {
   try {
     dispatch({
-      type: USER_LIST_REQLEST,
+      type: USER_LIST_REQUEST,
     })
 
     const {
@@ -192,19 +195,12 @@ export const ListUsers = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/users/account`, user, config)
+    const { data } = await axios.get(`/api/users`, config)
 
     dispatch({
-      type: USER_LIST_SUCLESS,
+      type: USER_LIST_SUCCESS,
       payload: data,
     })
-
-    dispatch({
-      type: USER_SIGIN_SUCCESS,
-      payload: data,
-    })
-
-    localStorage.setItem('userDetails', JSON.stringify(data))
 
   } catch (error) {
     dispatch({

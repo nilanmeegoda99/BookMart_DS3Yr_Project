@@ -7,19 +7,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import Checkoutnavigator from '../components/checkoutnavigator'
 import { AddOrder } from '../actions/orderActions'
 
-const ConfirmOrder = ({history}) => {
+const ConfirmOrder = ({ history }) => {
   const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
 
-  const orderAdd = useSelector(state => state.orderAdd)
-  const {order, success, error} = orderAdd
+  const orderAdd = useSelector((state) => state.orderAdd)
+  const { order, success, error } = orderAdd
   useEffect(() => {
-    if(success){
+    if (success) {
       history.push(`/orders/${order._id}`)
     }
-    // eslint-disable-next-line 
-  },[history, success])
+    // eslint-disable-next-line
+  }, [history, success])
 
   const confirmOrderHandler = () => {
     dispatch(
@@ -27,8 +27,8 @@ const ConfirmOrder = ({history}) => {
         orderItems: cart.cartItems,
 
         shippingAddress: cart.shippingDetails,
-     
-       paymentMethod: cart.paymentDetails,
+
+        paymentMethod: cart.paymentDetails,
         itemsPrice: cart.itemsCost,
         shippingPrice: cart.shippingCost,
         totalPrice: cart.totalCost,
@@ -36,7 +36,7 @@ const ConfirmOrder = ({history}) => {
     )
   }
 
-  console.log(cart.cartItems);
+  console.log(cart.cartItems)
 
   cart.itemsCost = cart.cartItems.reduce(
     (acc, item) => acc + item.price * item.oqty,
