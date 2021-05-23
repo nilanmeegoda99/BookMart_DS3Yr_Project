@@ -20,10 +20,7 @@ const OrderView = ({ match }) => {
   const orderPayment = useSelector((state) => state.orderPayment)
   const { loading: loadingpay, success: successpay } = orderPayment
 
-  order.itemsCost = order.cartItems.reduce(
-    (acc, item) => acc + item.price * item.oqty,
-    0
-  )
+ 
 
   useEffect(() => {
     //PAYPAL SCRIPT CONFIGURATION

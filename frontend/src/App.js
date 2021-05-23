@@ -12,6 +12,8 @@ import shippingprocessView from './screens/shippingprocessView'
 import paymentmethodView from './screens/paymentmethodView'
 import ConfirmOrder from './screens/confirmOrder'
 import OrderView from './screens/orderView'
+import userList from './screens/userList'
+import ProductlistView from './screens/productlistView'
 
 const App = () => {
   return (
@@ -25,8 +27,10 @@ const App = () => {
           <Route path='/cart/:id?' component={CartView} />
           <Route path='/account' component={UserProfileView} />
           <Route path='/login' component={SignInView} />
-          <Route path='/order' component={OrderView} />
+          <Route path='/admin/productlist' component={ProductlistView} />
+          <Route path='/orders' component={OrderView} />
           <Route path='/paymentprocess' component={paymentmethodView} />
+          <Route path='/admin/userlist' component={userList} />
           <Route path='/confirmOrder' component={ConfirmOrder} />
           <Route path='/shippingprocess' component={shippingprocessView} />
           <Route path='/register' component={AddUserView} />
