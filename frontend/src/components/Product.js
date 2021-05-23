@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 import Rating from '../components/Rating'
 
-//here we have used props to pass data between two components in a uni directional way
-//we can also use 'const Product = ({product}) => instead of using props here'
-
 const Product = (props) => {
   return (
     <Card className='my-3 py-3 rounded'>
