@@ -8,6 +8,10 @@ import CartView from './screens/CartView'
 import  SignInView from './screens/SignInView'
 import AddUserView from './screens/AddUserView'
 import UserProfileView from './screens/userProfileView'
+import shippingprocessView from './screens/shippingprocessView'
+import paymentmethodView from './screens/paymentmethodView'
+import ConfirmOrder from './screens/confirmOrder'
+import OrderView from './screens/orderView'
 
 const App = () => {
   return (
@@ -21,9 +25,14 @@ const App = () => {
           <Route path='/cart/:id?' component={CartView} />
           <Route path='/account' component={UserProfileView} />
           <Route path='/login' component={SignInView} />
+          <Route path='/order' component={OrderView} />
+          <Route path='/paymentprocess' component={paymentmethodView} />
+          <Route path='/confirmOrder' component={ConfirmOrder} />
+          <Route path='/shippingprocess' component={shippingprocessView} />
           <Route path='/register' component={AddUserView} />
            {/* Here we have used route to go to homepage if path is exactly / using exact keyword */}
            <Route path='/' component={Home} exact />
+
 
            
 

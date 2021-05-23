@@ -24,7 +24,7 @@ const Product = (props) => {
         </Link>
 
         <Card.Text as='div'></Card.Text>
-        <Card.Text as='h3'>${props.product.price}</Card.Text>
+        <Card.Text as='h5'>LKR {props.product.price}</Card.Text>
         <Rating
           value={props.product.rating}
           text={`${props.product.numReviews} reviews`}
